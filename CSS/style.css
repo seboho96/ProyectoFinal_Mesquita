@@ -1,3 +1,12 @@
+.content-box {
+    background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
 body {
     font-family: Be vie;
     text-align: center;
