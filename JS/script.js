@@ -92,6 +92,9 @@ async function updateMatchHistory(team1, team2, score1, score2) {
 async function displayMatchHistory() {
     let historyElement = document.getElementById("history");
 
+    // Clear the history element to remove any previous content
+    historyElement.innerHTML = "";
+
     if (matchHistory.length === 0) {
         historyElement.innerHTML += "<p>No matches played yet.</p>";
         return;
