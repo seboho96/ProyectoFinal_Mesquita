@@ -4,43 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Match Score Simulator</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="../Proyecto_final/CSS/style.css">
     <script src="../Proyecto_final/JS/script.js" defer></script>
     <title>Video full background</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="content-box">
     <h1>Football Match Score Simulator</h1>
     <p>Enter two team names, and the script will randomly generate a match result.</p>
     
-    <label for="team1">Team 1:</label>
-    <input type="text" id="team1" placeholder="Enter team 1 name">
+    <div class="content-box2">
+      <div class="team-inputs">
+        <input type="text" id="team1" placeholder="Team 1">
+        <input type="text" id="team2" placeholder="Team 2">
+      </div>
 
-    <label for="team2">Team 2:</label>
-    <input type="text" id="team2" placeholder="Enter team 2 name">
-
-    <!-- 🎮 Buttons -->
-    <button id="simulateBtn">Start Simulation</button>
-    <button id="resetBtn">Reset History</button> <!-- ← New button -->
+        <!-- 🎮 Buttons -->
+      <div>
+        <button id="simulateBtn"> Simulation</button>
+        <button id="resetBtn">Reset History</button> <!-- ← New button -->
+      </div>
+    </div>
 
     <h2>Match Result:</h2>
     <p id="result"></p>
 
-    <h2>Previous Matches:</h2>
+    <h2>Match History:</h2>
     <div id="history"></div>
   </div>
     <!-- Background Video -->
-  <video id="bg-video" autoplay muted loop playsinline>
+    <video id="bg-video" autoplay muted loop playsinline>
     <source src="./CSS/videos/8938616-hd_1920_1080_25fps.mp4" type="video/mp4" />
     Seu navegador não suporta vídeo em HTML5.
-  </video>
+    </video>
 
   <!-- Page -->
   <div class="conteudo">
-    Vídeo preenchendo todo o fundo 🎥
   </div>
 
     <!-- 🔊 Audio for celebration -->
@@ -51,3 +53,4 @@
 
 </body>
 </html>
+

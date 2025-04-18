@@ -1,30 +1,46 @@
-.content-box {
-    background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white */
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 600px;
-    margin: 50px auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-  }
 body {
-    font-family: Be vie;
+    font-family: "Be";
     text-align: center;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-
+.content-box {
+    background-color: rgb(255, 255, 255); /* semi-transparent white */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    opacity: 0.9;
+  }
+.content-box2 {
+    display: flex;
+    gap: 10px; /* space between elements */
+    justify-content: center; /* optional: center horizontally */
+    align-items: center; /* optional: center vertically */
+    flex-wrap: wrap; /* force single line */    
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* optional: soft shadow */
+    max-width: 800px;
+    margin: 20px auto;
+    opacity: 1;
+}
+.team-inputs {
+    font-size: 16px;
+  }
   html, body {
     height: 100%;
     overflow: hidden;
-    font-family: be;
   }
 
   .be-vietnam-pro-regular {
     font-family: "Be Vietnam Pro", sans-serif;
-    font-weight: 500;
-    font-style: normal;
+    font-weight: 200;
+    font-style: light;
   }
 
   video#bg-video {
@@ -48,6 +64,8 @@ body {
     text-shadow: 1px 1px 10px black;
     font-size: 2rem;
   }
+
+  
 h1 {
     color: #333;
 }
@@ -58,19 +76,19 @@ p {
 }
 
 button {
-    background-color: #007bff;
+    background-color: #2E7227;
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 10px;
     transition: background-color 0.3s;
+    opacity: 1;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #2e7227c6;
 }
 
 #result {
