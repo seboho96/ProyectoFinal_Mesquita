@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Match Score Simulator</title>
-    <link rel="stylesheet" href="../Proyecto_final/CSS/style.css">
-    <script src="../Proyecto_final/JS/script.js" defer></script>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="./JS/script.js" defer></script>
     <title>Video full background</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="content-box">
@@ -17,23 +17,25 @@
     <p>Enter two team names, and the script will randomly generate a match result.</p>
     
     <div class="content-box2">
-      <div class="team-inputs">
         <input type="text" id="team1" placeholder="Team 1">
         <input type="text" id="team2" placeholder="Team 2">
-      </div>
 
         <!-- 🎮 Buttons -->
-      <div>
         <button id="simulateBtn"> Simulation</button>
         <button id="resetBtn">Reset History</button> <!-- ← New button -->
-      </div>
     </div>
 
-    <h2>Match Result:</h2>
-    <p id="result"></p>
+    <div class="content-box-match">
+      <div>
+        <h2>Match Result</h2>
+        <div id="result"></div>
+      </div>
 
-    <h2>Match History:</h2>
-    <div id="history"></div>
+      <div>
+        <h2>Match History</h2>
+        <div id="history"></div>
+      </div>
+    </div>
   </div>
     <!-- Background Video -->
     <video id="bg-video" autoplay muted loop playsinline>
@@ -42,8 +44,8 @@
     </video>
 
   <!-- Page -->
-  <div class="conteudo">
-  </div>
+  <!-- <div class="conteudo">
+  </div> -->
 
     <!-- 🔊 Audio for celebration -->
     <audio id="cheerSound">

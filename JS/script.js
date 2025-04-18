@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOM fully loaded!");
-
     document.getElementById("simulateBtn").addEventListener("click", simulateMatch);
     document.getElementById("resetBtn").addEventListener("click", resetHistory);
 
@@ -14,9 +12,6 @@ function getTeamNames() {
     let team1 = document.getElementById("team1").value.trim();
     let team2 = document.getElementById("team2").value.trim();
 
-    console.log("Team 1: ", team1);
-    console.log("Team 2: ", team2);
-
     if (!team1 || !team2) {
         alert("Both teams must have a name!");
         return null;
@@ -29,8 +24,6 @@ function generateScores() {
     let score1 = Math.floor(Math.random() * 5);
     let score2 = Math.floor(Math.random() * 5);
 
-    console.log("Generated Scores: ", score1, score2);
-
     return { score1, score2 };
 }
 
@@ -39,36 +32,24 @@ function playSound() {
     if (audio) audio.play();
 }
 
-// 🔵 Added: fetch team logo from API and cache it
+// ✅ Add: fetch team logo from API
 async function fetchTeamLogo(teamName) {
-    if (teamLogos[teamName]) {
-        return teamLogos[teamName]; // 🔵
+    const url = `https://v3.football.api-sports.io/teams?search=${teamName}`;
+    const response = await fetch(url, {
+        headers: {
+            "x-apisports-key": "d8231a27d2084c9ebf755945d386a371" // 🔑 Replace with your actual key
+        }
+    });
+
+    const data = await response.json();
+
+    // If team is found, return logo URL
+    if (data.response && data.response.length > 0) {
+        return data.response[0].team.logo;
     }
 
-    try {
-        const response = await fetch(`https://api.football-data.org/v4/teams?name=${encodeURIComponent(teamName)}`, {
-            headers: {
-                'X-Auth-Token': '6cfa45277b2e40b89d4f5e19592b8782' // 🔵 Replace with actual key
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`); // 🔵
-        }
-
-        const data = await response.json(); // 🔵
-
-        if (data.teams && data.teams.length > 0) {
-            const logoUrl = data.teams[0].crest; // 🔵
-            teamLogos[teamName] = logoUrl; // 🔵
-            return logoUrl; // 🔵
-        } else {
-            return "https://via.placeholder.com/32"; // 🔵
-        }
-    } catch (error) {
-        console.error('Error fetching team logo:', error); // 🔵
-        return "https://via.placeholder.com/32"; // 🔵
-    }
+    // If not found, return placeholder
+    return "https://via.placeholder.com/32";
 }
 
 // 🟡 Modified: made this function async and included team logos
@@ -102,7 +83,6 @@ async function updateMatchHistory(team1, team2, score1, score2) {
     let match = { team1, team2, score1, score2, date };
     matchHistory.push(match);
 
-    console.log(matchHistory, "match");
     localStorage.setItem("matchHistory", JSON.stringify(matchHistory));
 
     await displayMatchHistory(); // 🟡 Awaited call
@@ -111,7 +91,6 @@ async function updateMatchHistory(team1, team2, score1, score2) {
 // 🟡 Modified: made this async to use fetchTeamLogo
 async function displayMatchHistory() {
     let historyElement = document.getElementById("history");
-    historyElement.innerHTML = "<h2>Match History</h2>";
 
     if (matchHistory.length === 0) {
         historyElement.innerHTML += "<p>No matches played yet.</p>";
@@ -139,7 +118,6 @@ async function displayMatchHistory() {
             <span class="${highlight1}">${match.team1} ${match.score1}</span> - 
             <span class="${highlight2}">${match.score2} ${match.team2}</span> 
             <img src="${logo2}" alt="${match.team2} logo" width="20" height="20">  <!-- 🔵 -->
-            <small> (${match.date})</small>
         `;
         list.appendChild(listItem);
     }
@@ -149,7 +127,6 @@ async function displayMatchHistory() {
 
 // 🟡 Modified: made async to await updated functions
 async function simulateMatch() {
-    console.log("Button clicked!");
 
     const teams = getTeamNames();
     if (!teams) return;
@@ -166,6 +143,7 @@ function resetHistory() {
     if (confirm("Are you sure you want to clear the match history?")) {
         matchHistory = [];
         localStorage.removeItem("matchHistory");
+        document.getElementById("history").innerHTML ="";
         document.getElementById("result").innerHTML = "";
         displayMatchHistory(); // no need to await here
     }
