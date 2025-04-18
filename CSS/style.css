@@ -6,7 +6,7 @@ body {
     box-sizing: border-box;
   }
 .content-box {
-    background-color: rgb(255, 255, 255); /* semi-transparent white */
+    background-color: rgb(255, 255, 255); /* semi-transparent white aaaa*/
     padding: 30px;
     border-radius: 10px;
     max-width: 600px;
