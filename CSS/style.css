@@ -192,3 +192,56 @@ th {
     border-radius: 4px;
   }
   
+  /* Media query for phones */
+@media (max-width: 480px) {
+    body {
+      flex-direction: column; /* Stack content vertically */
+      padding: 10px;
+    }
+  
+    .content-box {
+      width: 90%; /* Reduce width for smaller screens */
+      height: auto; /* Allow height to adjust dynamically */
+      margin-top: 20px; /* Adjust margin */
+      padding: 20px; /* Reduce padding */
+    }
+  
+    .content-box2 {
+      flex-direction: column; /* Stack items vertically */
+      gap: 15px; /* Increase spacing between items */
+      padding: 15px; /* Adjust padding */
+    }
+  
+    #result, #history {
+      min-width: 100%; /* Make them full width */
+      max-height: none; /* Remove height restriction */
+      line-height: normal; /* Adjust line height */
+      padding: 20px; /* Adjust padding */
+    }
+  
+    button {
+      font-size: 14px; /* Increase button font size */
+      padding: 10px 15px; /* Adjust padding */
+    }
+  
+    input {
+      width: 100%; /* Make input fields full width */
+      font-size: 14px; /* Adjust font size */
+    }
+  
+    table {
+      font-size: 12px; /* Reduce table font size */
+    }
+  
+    td, th {
+      padding: 6px; /* Adjust padding for table cells */
+    }
+  
+    h1 {
+      font-size: 20px; /* Adjust heading size */
+    }
+  
+    p {
+      font-size: 12px; /* Adjust paragraph font size */
+    }
+  }
