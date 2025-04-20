@@ -70,10 +70,10 @@ async function displayResult(team1, team2, score1, score2) {
     const logo2 = await fetchTeamLogo(team2); // 🔵
 
     resultElement.innerHTML = `
-        <img src="${logo1}" alt="${team1} logo" width="32" height="32">  <!-- 🔵 -->
+        <img src="${logo1}" alt="${team1} logo" width="15" height="15">  <!-- 🔵 -->
         <span class="${class1}">${team1} <strong>${score1}</strong></span> - 
         <span class="${class2}"><strong>${score2}</strong> ${team2}</span>
-        <img src="${logo2}" alt="${team2} logo" width="32" height="32">  <!-- 🔵 -->
+        <img src="${logo2}" alt="${team2} logo" width="15" height="15">  <!-- 🔵 -->
     `;
 }
 
@@ -117,10 +117,10 @@ async function displayMatchHistory() {
 
         let listItem = document.createElement("li");
         listItem.innerHTML = `
-            <img src="${logo1}" alt="${match.team1} logo" width="20" height="20">  <!-- 🔵 -->
+            <img src="${logo1}" alt="${match.team1} logo" width="15" height="15">  <!-- 🔵 -->
             <span class="${highlight1}">${match.team1} ${match.score1}</span> - 
             <span class="${highlight2}">${match.score2} ${match.team2}</span> 
-            <img src="${logo2}" alt="${match.team2} logo" width="20" height="20">  <!-- 🔵 -->
+            <img src="${logo2}" alt="${match.team2} logo" width="15" height="15">  <!-- 🔵 -->
         `;
         list.appendChild(listItem);
     }
